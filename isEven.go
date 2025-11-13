@@ -9,7 +9,7 @@ import "fmt"
 func isEven(n int) {
 	if n%2 == 0 {
 		fmt.Println("even")
-	}else{
+	} else {
 		fmt.Println("odd")
 	}
 }
