@@ -1,8 +1,0 @@
-package main 
-
-func CamelToSnake(str string) string {
-	result := ""
-	for _, r := range str {
-		if r >= 'A' 
-	}
-}

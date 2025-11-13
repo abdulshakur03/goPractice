@@ -15,5 +15,11 @@ func main() {
 	// fmt.Print(PrintIf("abcdefz"))
 	// fmt.Print(PrintIfNot("abcdefz"))
 	// fmt.Println(RectPerimeter(10, 2))
-	fmt.Println(RetainFirstHalf("This is the 1st halfThis is the 2nd half"))
+	// fmt.Println(RetainFirstHalf("This is the 1st halfThis is the 2nd half"))
+	fmt.Println(CamelToSnakeCase("HelloWorld"))
+	fmt.Println(CamelToSnakeCase("helloWorld"))
+	fmt.Println(CamelToSnakeCase("camelCase"))
+	fmt.Println(CamelToSnakeCase("CAMELtoSnackCASE"))
+	fmt.Println(CamelToSnakeCase("camelToSnakeCase"))
+	fmt.Println(CamelToSnakeCase("hey2"))
 }
