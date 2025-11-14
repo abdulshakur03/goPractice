@@ -1,59 +1,40 @@
-// package main
-
-// func Atoi(s string) int {
-// 	num := 0
-// 	sign := 1
-
-// 		if s[0] == '-' {
-// 		sign = -1
-// 	}else if s[0] == '+'{
-// 		sign = 1
-// 	}
-// 		for _, r := range s {
-// 			if r >= '0' && r <= '9' {
-// 				digits := int(r - '0')
-// 				num = num*10 + digits
-// 			}
-// 		}
-
-// return num*sign
-// }
-
-package main
-
+package piscine
 
 func Atoi(s string) int {
-	if len(s) == 0 { // empty string → return 0
-		return 0
-	}
+    if len(s) == 0 { // 1️⃣ Empty string → 0
+        return 0
+    }
 
-	num := 0
-	sign := 1
-	start := 0 // start index to read digits
+    num := 0
+    sign := 1
+    start := 0
 
-	// Handle optional sign
-	if s[0] == '-' {
-		sign = -1
-		start = 1
-	} else if s[0] == '+' {
-		start = 1
-	}
+    // 2️⃣ Handle sign
+    if s[0] == '-' || s[0] == '+' {
+        if len(s) > 1 && (s[1] == '-' || s[1] == '+') {
+            // 2a. Multiple signs at start → invalid
+            return 0
+        }
+        if s[0] == '-' {
+            sign = -1
+        }
+        start = 1
+    }
 
-	// Loop through characters
-	for i := start; i < len(s); i++ {
-		r := s[i]
-		if r >= '0' && r <= '9' {
-			digit := int(r - '0') // convert rune to integer
-			num = num*10 + digit  // build the number
-		} else {
-			// Stop at first non-digit (Z01 allows this)
-			break
-		}
-	}
+    // 3️⃣ Parse digits
+    for i := start; i < len(s); i++ {
+        r := s[i]
+        if r >= '0' && r <= '9' {
+            digit := int(r - '0')  // Convert rune to int
+            num = num*10 + digit   // Build number
+        } else {
+            // 3a. First non-digit → stop parsing
+            if num == 0 {
+                return 0 // If no digits seen yet → invalid string
+            }
+            break
+        }
+    }
 
-	return num * sign
+    return num * sign // 4️⃣ Apply sign
 }
-
-
-
-
