@@ -1,13 +1,10 @@
 package main
 
 func RetainFirstHalf(str string) string {
-	length := len(str)
-
-	if length == 0 || length == 1 {
+	strLength := len(str)
+	if strLength == 0 || strLength < 1{
 		return str
 	}
-
-	half := length/2
-
-	return str[:half]
+	hlfStr := strLength/2
+	return str[:hlfStr]	
 }
